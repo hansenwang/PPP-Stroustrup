@@ -1,0 +1,56 @@
+#include "std_lib_facilities.h"
+
+int main()
+{
+
+	double x = 0;
+	double largest = 0;
+	double smallest = 0;
+	double sum = 0;
+	vector <double> list;
+	cout << "Enter a number with a unit\n";
+	string unit;
+	while (cin >> x >> unit) {
+
+		if(unit== "in")
+			x = (x * 2.54) / 100;
+			
+		else if (unit == "cm")
+			x = x / 100;
+			
+		else if (unit == "m")
+			x = x;
+			
+		else if (unit == "ft")
+			x = (x * 12) * 0.0254;
+		else
+			cout << "I do not recognize this unit\n";
+		
+		if (largest == 0 and smallest == 0) {
+			largest = x;
+			smallest = x;
+		}
+		cout << x << "m\n";
+		if (x >= largest) {
+			cout <<" is the largest so far\n";
+			largest = x;
+		}
+		if (x <= smallest) {
+			cout <<" is the smallest so far\n";
+			smallest = x;
+		}
+		list.push_back(x);
+		sum += x;
+	}
+	cout << "Largest value was " << largest << " m\n";
+	cout << "Smallest value was " << smallest << " m\n";
+	cout << "Sum was " << sum << " m\n";
+	cout << "Number of values is " << list.size() << "\n";
+	sort(list);
+	for (int i = 0; i < list.size(); i++) {
+		cout << " " << list[i];
+	}
+}
+	
+	
+
